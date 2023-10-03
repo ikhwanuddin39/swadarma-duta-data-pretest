@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable, share } from 'rxjs';
   providedIn: 'root'
 })
 export class BaseApiService {
-  public apiUrl = 'https://jsonplaceholder.typicode.com';
+  public apiUrl = 'https://my-json-server.typicode.com/ikhwanuddin39/swadarma-duta-data-pretest/';
   public localUrl = 'http://localhost:3000';
   public endpoint = '';
 
