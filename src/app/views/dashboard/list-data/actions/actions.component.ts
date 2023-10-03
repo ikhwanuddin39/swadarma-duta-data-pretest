@@ -24,7 +24,7 @@ export class ActionsComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
       username: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       address: [null, Validators.required],
       phone: ['', Validators.required],
     });

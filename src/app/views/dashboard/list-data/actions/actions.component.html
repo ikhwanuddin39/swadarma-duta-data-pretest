@@ -36,6 +36,9 @@
             <span *ngIf="hasError(form, 'email', 'required')" class="text-red-600 text-sm">
                Harus diisi
             </span>
+            <span *ngIf="hasError(form, 'email', 'email')" class="text-red-600 text-sm">
+               Format tidak sesuai
+            </span>
          </div>
 
          <!-- address -->

@@ -15,6 +15,14 @@
       "email": "ervin@gmail.com",
       "address": "Victor Plains",
       "phone": "0812345678"
+    },
+    {
+      "name": "john doe",
+      "username": "johndoe",
+      "email": "mail",
+      "address": "test",
+      "phone": "1234323",
+      "id": 3
     }
   ]
 }
