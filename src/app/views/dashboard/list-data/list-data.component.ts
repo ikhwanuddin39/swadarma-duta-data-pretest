@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Post, PostsService } from 'src/app/core/api/posts.service';
 import { ConfirmationDialogComponent } from '../../components/confirmation-dialog/confirmation-dialog.component';
 import { ToastrService } from 'ngx-toastr';
+import { UsersService } from 'src/app/core/api/users.service';
 
 @Component({
   selector: 'app-list-data',
@@ -12,11 +13,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ListDataComponent implements OnInit {
 
-  displayedColumns: string[] = ['no', 'id', 'title', 'body', 'action'];
+  displayedColumns: string[] = ['id', 'name', 'username', 'email', 'address', 'phone', 'action'];
   dataSource: Post[] = []
 
   constructor(
-    private service: PostsService,
+    private service: UsersService,
     public router: Router,
     public activatedRoute: ActivatedRoute,
     public dialog: MatDialog,

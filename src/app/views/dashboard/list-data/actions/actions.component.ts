@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { PostsService } from 'src/app/core/api/posts.service';
+import { UsersService } from 'src/app/core/api/users.service';
 
 @Component({
   selector: 'app-actions',
@@ -16,14 +17,16 @@ export class ActionsComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private service: PostsService,
+    private service: UsersService,
     public activatedRoute: ActivatedRoute,
     private toastr: ToastrService
   ) {
     this.form = this.formBuilder.group({
-      id: [Math.floor(Math.random() * Math.pow(10, 3)).toString().padStart(3, '0'), Validators.required],
-      title: [null, Validators.required],
-      body: [null, Validators.required],
+      name: ['', Validators.required],
+      username: ['', Validators.required],
+      email: ['', Validators.required],
+      address: [null, Validators.required],
+      phone: ['', Validators.required],
     });
   }
 

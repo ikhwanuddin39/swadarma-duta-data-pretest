@@ -2,28 +2,66 @@
    <div class="bg-white w-6/12 p-6 rounded-lg">
       <h2 class="text-2xl text-neutral-800 font-bold">{{pageTitle}}</h2>
       <form [formGroup]="form" class="flex flex-col gap-3">
-         <!-- title -->
+         <!-- name -->
          <div>
-            <label for="title"
-               class="text-zinc-800 block font-medium mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">Title</label>
-            <input type="text" formControlName="title"
-               [ngClass]="{'ring-1 ring-red-600 focus:ring-red-600': hasError(form, 'title', 'required')}"
+            <label for="name"
+               class="text-zinc-800 block font-medium mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">name</label>
+            <input type="text" formControlName="name"
+               [ngClass]="{'ring-1 ring-red-600 focus:ring-red-600': hasError(form, 'name', 'required')}"
                class="bg-zinc-100 rounded-lg w-full px-4 py-3 text-zinc-600" required />
-            <span *ngIf="hasError(form, 'title', 'required')" class="text-red-600 text-sm">
+            <span *ngIf="hasError(form, 'name', 'required')" class="text-red-600 text-sm">
                Harus diisi
             </span>
          </div>
-         <!-- body -->
+
+         <!-- username -->
          <div>
-            <label for="body"
-               class="text-zinc-800 block font-medium mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">Body</label>
-            <textarea formControlName="body" rows="6"
-               [ngClass]="{'ring-1 ring-red-600 focus:ring-red-600': hasError(form, 'body', 'required')}"
-               class="bg-zinc-100 rounded-lg w-full px-4 py-3 text-zinc-600" required></textarea>
-            <span *ngIf="hasError(form, 'body', 'required')" class="text-red-600 text-sm">
+            <label for="username"
+               class="text-zinc-800 block font-medium mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">username</label>
+            <input type="text" formControlName="username"
+               [ngClass]="{'ring-1 ring-red-600 focus:ring-red-600': hasError(form, 'username', 'required')}"
+               class="bg-zinc-100 rounded-lg w-full px-4 py-3 text-zinc-600" required />
+            <span *ngIf="hasError(form, 'username', 'required')" class="text-red-600 text-sm">
                Harus diisi
             </span>
          </div>
+
+         <!-- email -->
+         <div>
+            <label for="email"
+               class="text-zinc-800 block font-medium mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">email</label>
+            <input type="text" formControlName="email"
+               [ngClass]="{'ring-1 ring-red-600 focus:ring-red-600': hasError(form, 'email', 'required')}"
+               class="bg-zinc-100 rounded-lg w-full px-4 py-3 text-zinc-600" required />
+            <span *ngIf="hasError(form, 'email', 'required')" class="text-red-600 text-sm">
+               Harus diisi
+            </span>
+         </div>
+
+         <!-- address -->
+         <div>
+            <label for="address"
+               class="text-zinc-800 block font-medium mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">address</label>
+            <textarea formControlName="address" rows="6"
+               [ngClass]="{'ring-1 ring-red-600 focus:ring-red-600': hasError(form, 'address', 'required')}"
+               class="bg-zinc-100 rounded-lg w-full px-4 py-3 text-zinc-600" required></textarea>
+            <span *ngIf="hasError(form, 'address', 'required')" class="text-red-600 text-sm">
+               Harus diisi
+            </span>
+         </div>
+
+         <!-- phone -->
+         <div>
+            <label for="phone"
+               class="text-zinc-800 block font-medium mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">phone</label>
+            <input type="text" formControlName="phone"
+               [ngClass]="{'ring-1 ring-red-600 focus:ring-red-600': hasError(form, 'phone', 'required')}"
+               class="bg-zinc-100 rounded-lg w-full px-4 py-3 text-zinc-600" required />
+            <span *ngIf="hasError(form, 'phone', 'required')" class="text-red-600 text-sm">
+               Harus diisi
+            </span>
+         </div>
+
          <!-- button -->
          <div class="flex gap-4">
             <button (click)="onBack()" type="button"

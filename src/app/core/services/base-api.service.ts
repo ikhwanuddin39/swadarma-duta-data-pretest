@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable, share } from 'rxjs';
 })
 export class BaseApiService {
   public apiUrl = 'https://jsonplaceholder.typicode.com';
-
+  public localUrl = 'http://localhost:3000';
   public endpoint = '';
 
   // required service
@@ -16,32 +16,31 @@ export class BaseApiService {
 
   // get semua data
   getData(): Observable<any> {
-    const url = `${this.apiUrl}/${this.endpoint}`;
+    const url = `${this.localUrl}/${this.endpoint}`;
     return this.http.get(url);
   }
 
   // get data berdasarkan ID
   getById(id: number): Observable<any> {
-    const endpoint = `posts/${id}`;
-    const url = `${this.apiUrl}/${this.endpoint}/${id}`;
+    const url = `${this.localUrl}/${this.endpoint}/${id}`;
     return this.http.get(url);
   }
 
   // Insert data baru
   insert(data: any): Observable<any> {
-    const url = `${this.apiUrl}/${this.endpoint}`;
+    const url = `${this.localUrl}/${this.endpoint}`;
     return this.http.post(url, data);
   }
 
   // Edit data berdasarkan ID
   update(id: number, newData: any): Observable<any> {
-    const url = `${this.apiUrl}/${this.endpoint}/${id}`;
+    const url = `${this.localUrl}/${this.endpoint}/${id}`;
     return this.http.put(url, newData);
   }
 
   // Delete data berdasarkan ID
   delete(id: number): Observable<any> {
-    const url = `${this.apiUrl}/${this.endpoint}/${id}`;
+    const url = `${this.localUrl}/${this.endpoint}/${id}`;
     return this.http.delete(url);
   }
 
