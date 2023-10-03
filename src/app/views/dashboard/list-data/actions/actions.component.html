@@ -1,7 +1,7 @@
 <div class="flex justify-center">
    <div class="bg-white w-6/12 p-6 rounded-lg">
       <h2 class="text-2xl text-neutral-800 font-bold">{{pageTitle}}</h2>
-      <form [formGroup]="form">
+      <form [formGroup]="form" class="flex flex-col gap-3">
          <!-- title -->
          <div>
             <label for="title"
@@ -25,8 +25,12 @@
             </span>
          </div>
          <!-- button -->
-         <button (click)="submit()" [disabled]="this.form.invalid" type="button"
-            class="bg-green-600 hover:bg-green-700 active:bg-green-800 text-white py-2.5 px-4 my-4 rounded-md w-full  disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-green-600">Submit</button>
+         <div class="flex gap-4">
+            <button (click)="onBack()" type="button"
+               class="bg-neutral-500 hover:bg-neutral-600 active:bg-neutral-800 text-white py-2.5 px-4 my-4 rounded-md w-full">Cancel</button>
+            <button (click)="submit()" [disabled]="this.form.invalid" type="button"
+               class="bg-green-600 hover:bg-green-700 active:bg-green-800 text-white py-2.5 px-4 my-4 rounded-md w-full  disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-green-600">Submit</button>
+         </div>
       </form>
    </div>
 </div>

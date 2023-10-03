@@ -57,21 +57,23 @@ export class ActionsComponent implements OnInit {
     console.log(this.form.value);
     if (this.queryParam['m'] == 'edit') {
       this.service.update(this.queryParam['id'], this.form.value).subscribe((res) => {
-        console.log(res);
+        this.onBack();
         this.toast('success', 'Data berhasil diubah')
-        window.history.back();
       }
       )
       return;
     } else if (this.queryParam['m'] == 'add') {
       this.service.insert(this.form.value).subscribe((res) => {
-        console.log(res);
+        this.onBack();
         this.toast('success', 'Data berhasil ditambahkan')
-        window.history.back();
       }
       )
       return;
     }
+  }
+
+  onBack() {
+    window.history.back();
   }
 
   // toast
