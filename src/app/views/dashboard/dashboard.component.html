@@ -1,6 +1,6 @@
 <div class="flex">
    <!-- sidebar -->
-   <aside class="min-h-screen h-full bg-white w-3/12 drop-shadow-lg">
+   <aside class="min-h-screen h-full bg-white w-3/12">
       <h1 class="font-bold text-4xl text-sky-800 p-6">dashboard</h1>
       <ul>
          <ng-container *ngFor="let item of menus">
@@ -13,7 +13,12 @@
       </ul>
    </aside>
    <!-- main content -->
-   <main class="bg-sky-50 min-h-screen w-full p-6">
-      <router-outlet></router-outlet>
+   <main class="bg-sky-50 min-h-screen w-full flex flex-col">
+      <header class="bg-white w-full p-6 flex justify-end">Admin</header>
+      <section class="p-6">
+         <router-outlet></router-outlet>
+      </section>
+      <footer class="text-center text-xs text-neutral-500 py-2 ">test angular developer PT Swadharma Duta Data 2023
+      </footer>
    </main>
 </div>

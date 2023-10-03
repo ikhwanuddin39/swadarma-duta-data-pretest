@@ -14,7 +14,12 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 2500,
+      positionClass: "toast-bottom-center",
+      preventDuplicates: true,
+      progressBar: true,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

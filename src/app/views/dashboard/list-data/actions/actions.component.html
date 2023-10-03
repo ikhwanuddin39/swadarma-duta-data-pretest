@@ -1,1 +1,32 @@
-<p>actions works!</p>
+<div class="flex justify-center">
+   <div class="bg-white w-6/12 p-6 rounded-lg">
+      <h2 class="text-2xl text-neutral-800 font-bold">{{pageTitle}}</h2>
+      <form [formGroup]="form">
+         <!-- title -->
+         <div>
+            <label for="title"
+               class="text-zinc-800 block font-medium mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">Title</label>
+            <input type="text" formControlName="title"
+               [ngClass]="{'ring-1 ring-red-600 focus:ring-red-600': hasError(form, 'title', 'required')}"
+               class="bg-zinc-100 rounded-lg w-full px-4 py-3 text-zinc-600" required />
+            <span *ngIf="hasError(form, 'title', 'required')" class="text-red-600 text-sm">
+               Harus diisi
+            </span>
+         </div>
+         <!-- body -->
+         <div>
+            <label for="body"
+               class="text-zinc-800 block font-medium mb-1 after:content-['*'] after:ml-0.5 after:text-red-500">Body</label>
+            <textarea formControlName="body" rows="6"
+               [ngClass]="{'ring-1 ring-red-600 focus:ring-red-600': hasError(form, 'body', 'required')}"
+               class="bg-zinc-100 rounded-lg w-full px-4 py-3 text-zinc-600" required></textarea>
+            <span *ngIf="hasError(form, 'body', 'required')" class="text-red-600 text-sm">
+               Harus diisi
+            </span>
+         </div>
+         <!-- button -->
+         <button (click)="submit()" [disabled]="this.form.invalid" type="button"
+            class="bg-green-600 hover:bg-green-700 active:bg-green-800 text-white py-2.5 px-4 my-4 rounded-md w-full  disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-green-600">Submit</button>
+      </form>
+   </div>
+</div>

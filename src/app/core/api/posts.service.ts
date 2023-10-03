@@ -11,10 +11,6 @@ export interface Post {
 @Injectable({
   providedIn: 'root'
 })
-export class PostsService extends BaseApiService<Post> {
-
+export class PostsService extends BaseApiService {
   public override endpoint = 'posts';
-
-
-
 }
