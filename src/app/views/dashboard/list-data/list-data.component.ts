@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post, PostsService } from 'src/app/core/api/posts.service';
 
 @Component({
@@ -12,7 +13,9 @@ export class ListDataComponent implements OnInit {
   dataSource: Post[] = []
 
   constructor(
-    private service: PostsService
+    private service: PostsService,
+    public router: Router,
+    public activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
@@ -20,4 +23,32 @@ export class ListDataComponent implements OnInit {
       this.dataSource = res
     })
   }
+
+  add() {
+    this.router.navigate(['./actions'], {
+      relativeTo: this.activatedRoute,
+      queryParams: {
+        m: 'add',
+      },
+    });
+  }
+
+  edit(id: number) {
+    this.router.navigate(['./actions'], {
+      relativeTo: this.activatedRoute,
+      queryParams: {
+        m: 'edit',
+        id: id
+      },
+    });
+  }
+
+  delete(id: number) {
+    this.service.delete(id).subscribe((res) => {
+      this.service.getData().subscribe((res) => {
+        this.dataSource = res
+      })
+    })
+  }
+
 }

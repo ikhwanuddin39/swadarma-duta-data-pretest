@@ -9,6 +9,9 @@ const routes: Routes = [
   {
     path: '',
     component: ListDataComponent
+  }, {
+    path: 'actions',
+    loadChildren: () => import('./actions/actions.module').then(m => m.ActionsModule)
   }
 ];
 

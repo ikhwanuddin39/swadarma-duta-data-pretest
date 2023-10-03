@@ -26,4 +26,10 @@ export class BaseApiService<T>{
     const url = `${this.apiUrl}/${endpoint}`;
     return this.http.get(url);
   }
+
+  delete(id: number): Observable<any> {
+    const endpoint = `posts/${id}`;
+    const url = `${this.apiUrl}/${endpoint}`;
+    return this.http.delete(url);
+  }
 }
