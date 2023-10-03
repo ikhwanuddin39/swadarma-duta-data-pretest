@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { PostsService } from 'src/app/core/api/posts.service';
 import { UsersService } from 'src/app/core/api/users.service';
 
 @Component({

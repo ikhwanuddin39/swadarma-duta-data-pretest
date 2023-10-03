@@ -14,6 +14,7 @@ import {
   ApexTitleSubtitle,
   ApexLegend
 } from "ng-apexcharts";
+import { ChartService } from 'src/app/core/api/chart.service';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -38,27 +39,26 @@ export class MainComponent implements OnInit {
   public chartOptions!: Partial<ChartOptions>;
   months = moment.months();
   listMonth = new Date()
+  chartSeries: any[] = []
+
+  constructor(
+    private service: ChartService
+  ) { }
 
   ngOnInit(): void {
-    this.initChart();
+    this.getData();
+  }
+
+  getData() {
+    this.service.getData().subscribe((res) => {
+      this.chartSeries = res
+      this.initChart();
+    })
   }
 
   initChart() {
     this.chartOptions = {
-      series: [
-        {
-          name: "Session Duration",
-          data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
-        },
-        {
-          name: "Page Views",
-          data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
-        },
-        {
-          name: "Total Visits",
-          data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
-        }
-      ],
+      series: this.chartSeries,
       chart: {
         height: 350,
         type: "line",
