@@ -1,0 +1,12 @@
+<div class="flex flex-col justify-center items-center py-4 px-8">
+
+   <h2 class="text-lg text-zinc-800 font-medium">{{data?.title ?? 'Apakah anda yakin?'}}</h2>
+   <p class="text-zinc-500 text-sm text-center">{{data?.message}}</p>
+   <div class="flex justify-center gap-4 mt-3">
+      <button (click)="close(false)"
+         class="px-5 py-2.5 bg-zinc-100 hover:bg-zinc-200 active:bg-zinc-300 rounded-lg text-neutral-600 font-semibold">Tidak</button>
+      <button (click)="close(true)"
+         class="px-5 py-2.5 bg-sky-500 hover:bg-sky-600 active:bg-sky-700 rounded-lg text-white font-semibold">Ya,
+         Setuju</button>
+   </div>
+</div>

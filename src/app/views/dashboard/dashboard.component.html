@@ -5,8 +5,8 @@
       <ul>
          <ng-container *ngFor="let item of menus">
             <li>
-               <a [routerLink]="item?.link" routerLinkActive="border-white bg-sky-50"
-                  class="flex font-semibold text-xl px-6 py-3 text-sky-700 hover:bg-sky-50 transition hover:duration-300 ease-in-out">{{
+               <a [routerLink]="item?.link" routerLinkActive="border-white bg-sky-50 font-semibold" class=" flex text-xl px-6 py-3 text-sky-700 hover:bg-sky-50 transition
+                  hover:duration-300 ease-in-out">{{
                   item?.name }}</a>
             </li>
          </ng-container>

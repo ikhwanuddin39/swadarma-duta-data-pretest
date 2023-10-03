@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post, PostsService } from 'src/app/core/api/posts.service';
+import { ConfirmationDialogComponent } from '../../components/confirmation-dialog/confirmation-dialog.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-list-data',
@@ -16,6 +19,9 @@ export class ListDataComponent implements OnInit {
     private service: PostsService,
     public router: Router,
     public activatedRoute: ActivatedRoute,
+    public dialog: MatDialog,
+    private toastr: ToastrService
+
   ) { }
 
   ngOnInit(): void {
@@ -44,11 +50,37 @@ export class ListDataComponent implements OnInit {
   }
 
   delete(id: number) {
+    this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        title: 'Konfirmasi',
+        message: 'Apakah anda yakin ingin menghapus data ini?'
+      }
+    }).afterClosed().subscribe((res) => {
+      if (res) {
+        this.toast('success', 'Data berhasil dihapus')
+        this.deleteData(id)
+      }
+    })
+
+  }
+
+  deleteData(id: number) {
     this.service.delete(id).subscribe((res) => {
       this.service.getData().subscribe((res) => {
         this.dataSource = res
       })
     })
+  }
+
+  // toast
+  toast(type: string, message: string) {
+    if (type === "success") {
+      this.toastr.success(message);
+    } else if (type === "error") {
+      this.toastr.error(message);
+    } else {
+      this.toastr.info(message);
+    }
   }
 
 }
