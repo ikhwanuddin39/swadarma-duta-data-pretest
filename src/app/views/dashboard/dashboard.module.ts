@@ -15,6 +15,10 @@ const routes: Routes = [
       }, {
         path: 'home',
         loadChildren: () => import('./main/main.module').then(m => m.MainModule)
+      },
+      {
+        path: 'list-data',
+        loadChildren: () => import('./list-data/list-data.module').then(m => m.ListDataModule)
       }
     ]
   }
