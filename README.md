@@ -9,7 +9,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## Local API server
 
 Run the following command to start the JSON Server: `json-server --watch .\db.json`
-This command will start the API server and watch the db.json file for changes/
+This command will start the API server and watch the `db.json` file for changes/
 Once the server is running, you can access it at `http://localhost:3000/` in your web browser or make HTTP requests to it using tools like curl or Postman.
 
 ## Code scaffolding
